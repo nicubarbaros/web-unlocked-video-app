@@ -1,15 +1,248 @@
 {
   "movies": [
     {
-      "id": "1"
+      "id": 1,
+      "title": "The Shawshank Redemption",
+      "type": "Movie",
+      "genre": "Drama",
+      "releaseYear": 1994,
+      "rating": 9.3
     },
     {
-      "id": "2"
+      "id": 2,
+      "title": "The Godfather",
+      "type": "Movie",
+      "genre": "Crime",
+      "releaseYear": 1972,
+      "rating": 9.2
     },
     {
-      "id": "3"
+      "id": 3,
+      "title": "The Dark Knight",
+      "type": "Movie",
+      "genre": "Action",
+      "releaseYear": 2008,
+      "rating": 9.0
+    },
+    {
+      "id": 4,
+      "title": "Pulp Fiction",
+      "type": "Movie",
+      "genre": "Crime",
+      "releaseYear": 1994,
+      "rating": 8.9
+    },
+    {
+      "id": 5,
+      "title": "The Lord of the Rings: The Return of the King",
+      "type": "Movie",
+      "genre": "Fantasy",
+      "releaseYear": 2003,
+      "rating": 8.9
+    },
+    {
+      "id": 6,
+      "title": "Schindler's List",
+      "type": "Movie",
+      "genre": "Biography",
+      "releaseYear": 1993,
+      "rating": 8.9
+    },
+    {
+      "id": 7,
+      "title": "Inception",
+      "type": "Movie",
+      "genre": "Action",
+      "releaseYear": 2010,
+      "rating": 8.8
+    },
+    {
+      "id": 8,
+      "title": "Fight Club",
+      "type": "Movie",
+      "genre": "Drama",
+      "releaseYear": 1999,
+      "rating": 8.8
+    },
+    {
+      "id": 9,
+      "title": "Forrest Gump",
+      "type": "Movie",
+      "genre": "Drama",
+      "releaseYear": 1994,
+      "rating": 8.8
+    },
+    {
+      "id": 10,
+      "title": "The Matrix",
+      "type": "Movie",
+      "genre": "Action",
+      "releaseYear": 1999,
+      "rating": 8.7
     }
   ],
-  "tv-shows": [],
-  "games": []
+  "tv-shows": [
+    {
+      "id": 1,
+      "title": "Breaking Bad",
+      "type": "TV Show",
+      "genre": "Crime, Drama, Thriller",
+      "releaseYear": 2008,
+      "rating": 9.5
+    },
+    {
+      "id": 2,
+      "title": "Game of Thrones",
+      "type": "TV Show",
+      "genre": "Action, Adventure, Drama",
+      "releaseYear": 2011,
+      "rating": 9.3
+    },
+    {
+      "id": 3,
+      "title": "The Crown",
+      "type": "TV Show",
+      "genre": "Biography, Drama, History",
+      "releaseYear": 2016,
+      "rating": 8.6
+    },
+    {
+      "id": 4,
+      "title": "Stranger Things",
+      "type": "TV Show",
+      "genre": "Drama, Fantasy, Horror",
+      "releaseYear": 2016,
+      "rating": 8.7
+    },
+    {
+      "id": 5,
+      "title": "Friends",
+      "type": "TV Show",
+      "genre": "Comedy, Romance",
+      "releaseYear": 1994,
+      "rating": 8.5
+    },
+    {
+      "id": 6,
+      "title": "Black Mirror",
+      "type": "TV Show",
+      "genre": "Drama, Sci-Fi, Thriller",
+      "releaseYear": 2011,
+      "rating": 8.8
+    },
+    {
+      "id": 7,
+      "title": "The Office (US)",
+      "type": "TV Show",
+      "genre": "Comedy",
+      "releaseYear": 2005,
+      "rating": 8.9
+    },
+    {
+      "id": 8,
+      "title": "The Mandalorian",
+      "type": "TV Show",
+      "genre": "Action, Adventure, Fantasy",
+      "releaseYear": 2019,
+      "rating": 8.7
+    },
+    {
+      "id": 9,
+      "title": "Sherlock",
+      "type": "TV Show",
+      "genre": "Crime, Drama, Mystery",
+      "releaseYear": 2010,
+      "rating": 9.1
+    },
+    {
+      "id": 10,
+      "title": "Westworld",
+      "type": "TV Show",
+      "genre": "Drama, Mystery, Sci-Fi",
+      "releaseYear": 2016,
+      "rating": 8.6
+    }
+  ],
+  "games": [
+    {
+      "id": 1,
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "type": "Game",
+      "genre": "Action-Adventure",
+      "releaseYear": 2017,
+      "rating": 9.5
+    },
+    {
+      "id": 2,
+      "title": "The Witcher 3: Wild Hunt",
+      "type": "Game",
+      "genre": "Action-RPG",
+      "releaseYear": 2015,
+      "rating": 9.3
+    },
+    {
+      "id": 3,
+      "title": "Red Dead Redemption 2",
+      "type": "Game",
+      "genre": "Action-Adventure",
+      "releaseYear": 2018,
+      "rating": 9.7
+    },
+    {
+      "id": 4,
+      "title": "Dark Souls III",
+      "type": "Game",
+      "genre": "Action-RPG",
+      "releaseYear": 2016,
+      "rating": 9.0
+    },
+    {
+      "id": 5,
+      "title": "The Elder Scrolls V: Skyrim",
+      "type": "Game",
+      "genre": "Action-RPG",
+      "releaseYear": 2011,
+      "rating": 9.3
+    },
+    {
+      "id": 6,
+      "title": "Mass Effect 2",
+      "type": "Game",
+      "genre": "Action-RPG",
+      "releaseYear": 2010,
+      "rating": 9.6
+    },
+    {
+      "id": 7,
+      "title": "Uncharted 4: A Thief's End",
+      "type": "Game",
+      "genre": "Action-Adventure",
+      "releaseYear": 2016,
+      "rating": 9.5
+    },
+    {
+      "id": 8,
+      "title": "Overwatch",
+      "type": "Game",
+      "genre": "First-Person Shooter",
+      "releaseYear": 2016,
+      "rating": 8.9
+    },
+    {
+      "id": 9,
+      "title": "Hollow Knight",
+      "type": "Game",
+      "genre": "Metroidvania",
+      "releaseYear": 2017,
+      "rating": 9.2
+    },
+    {
+      "id": 10,
+      "title": "Persona 5",
+      "type": "Game",
+      "genre": "Japanese RPG",
+      "releaseYear": 2016,
+      "rating": 9.0
+    }
+  ]
 }
