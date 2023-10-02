@@ -1,10 +1,15 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Media from "./components/Media";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/media" element={<Media />} />
+      <Route path="*" element={<div>Not found</div>} />
+    </Routes>
   );
 }
 
