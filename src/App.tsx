@@ -7,6 +7,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/movies" element={<Home />} />
+      <Route path="/games" element={<Home />} />
+      <Route path="/tv-shows" element={<Home />} />
       <Route path="/media" element={<Media />} />
       <Route path="*" element={<div>Not found</div>} />
     </Routes>
