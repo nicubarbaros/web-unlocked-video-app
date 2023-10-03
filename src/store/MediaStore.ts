@@ -1,11 +1,12 @@
-import { observable, action, makeObservable } from "mobx";
+import { observable, action, makeObservable, get, computed, makeAutoObservable } from "mobx";
 import { BehaviorSubject, catchError, map, mergeMap, of, startWith } from "rxjs";
 import { AjaxResponse, ajax } from "rxjs/ajax";
 
-type MediaItem = {
+export type MediaItem = {
   id: string;
   title: string;
-  type: string;
+  type: "Movie" | "TV Show" | "Game";
+  classification: "movie" | "tv_show" | "game";
   genre: string;
   releaseYear: number;
   rating: number;
@@ -13,16 +14,12 @@ type MediaItem = {
 
 class MediaStore {
   mediaItems: MediaItem[] = [];
+  mediaLoading: boolean = false;
   mediaContentSubject = new BehaviorSubject<MediaItem[]>([]);
   private baseUrl = "http://localhost:8000/browse";
 
   constructor() {
-    makeObservable(this, {
-      mediaItems: observable,
-      addMediaItem: action,
-      removeMediaItem: action,
-      setMedia: action,
-    });
+    makeAutoObservable(this);
 
     this.mediaContentSubject.subscribe((mediaList) => {
       this.setMedia(mediaList);
@@ -43,6 +40,18 @@ class MediaStore {
 
   get totalItems() {
     return this.mediaItems.length;
+  }
+
+  get itemsByCategory() {
+    return this.mediaItems.reduce((acc: Record<string, MediaItem[]>, item) => {
+      const category = item.classification;
+      console.log(category);
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(item);
+      return acc;
+    }, {});
   }
 
   fetchMediaItems() {

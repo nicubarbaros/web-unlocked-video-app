@@ -2,11 +2,14 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Media from "./components/Media";
+import PreviewModal from "./components/PreviewModal";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />}>
+        <Route path=":id" element={<PreviewModal />} />
+      </Route>
       <Route path="/movies" element={<Home />} />
       <Route path="/games" element={<Home />} />
       <Route path="/tv-shows" element={<Home />} />
