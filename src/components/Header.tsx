@@ -5,17 +5,17 @@ import { NavLink } from "react-router-dom";
 export default function Header() {
   return (
     <Navbar>
-      <div className="flex-1">
-        <NavLink to="/" className={({ isActive }) => (isActive ? "text-blue-500" : "white")}>
+      <div className="flex-1 gap-8">
+        <NavLink to="/" className={({ isActive }) => (isActive ? "font-bold" : "")}>
           Browse
         </NavLink>
-        <NavLink to="/movies" className={({ isActive }) => (isActive ? "text-blue-500" : "white")}>
+        <NavLink to="/movies" className={({ isActive }) => (isActive ? "font-bold" : "")}>
           Movies
         </NavLink>
-        <NavLink to="/tv-shows" className={({ isActive }) => (isActive ? "text-blue-500" : "white")}>
+        <NavLink to="/tv-shows" className={({ isActive }) => (isActive ? "font-bold" : "")}>
           TV Shows
         </NavLink>
-        <NavLink to="/games" className={({ isActive }) => (isActive ? "text-blue-500" : "white")}>
+        <NavLink to="/games" className={({ isActive }) => (isActive ? "font-bold" : "")}>
           Games
         </NavLink>
       </div>

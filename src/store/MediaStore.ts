@@ -1,5 +1,5 @@
 import { observable, action, makeObservable, get, computed, makeAutoObservable } from "mobx";
-import { BehaviorSubject, catchError, map, mergeMap, of, startWith } from "rxjs";
+import { BehaviorSubject, Subject, catchError, map, mergeMap, of, startWith, switchMap, takeUntil } from "rxjs";
 import { AjaxResponse, ajax } from "rxjs/ajax";
 
 export type MediaItem = {
@@ -10,20 +10,23 @@ export type MediaItem = {
   genre: string;
   releaseYear: number;
   rating: number;
+  description: string;
+  color: string;
 };
 
-class MediaStore {
+export class MediaStore {
   mediaItems: MediaItem[] = [];
   mediaLoading: boolean = false;
   mediaContentSubject = new BehaviorSubject<MediaItem[]>([]);
   private baseUrl = "http://localhost:8000/browse";
-
+  cancelRequest = new Subject();
   constructor() {
     makeAutoObservable(this);
 
     this.mediaContentSubject.subscribe((mediaList) => {
       this.setMedia(mediaList);
     });
+    this.fetchMediaItems();
   }
 
   addMediaItem(item: MediaItem) {
@@ -54,6 +57,23 @@ class MediaStore {
     }, {});
   }
 
+  get movieItems() {
+    return this.mediaItems.filter((item) => item.classification === "movie");
+  }
+
+  get showItems() {
+    return this.mediaItems.filter((item) => item.classification === "tv_show");
+  }
+  get gameItems() {
+    return this.mediaItems.filter((item) => item.classification === "game");
+  }
+
+  get getMediaById() {
+    return (mediaId: string) => {
+      return this.mediaItems.find((item) => item.id === mediaId);
+    };
+  }
+
   fetchMediaItems() {
     ajax
       .getJSON<MediaItem[]>(this.baseUrl)
@@ -68,7 +88,14 @@ class MediaStore {
       .post(this.baseUrl, item, {
         "Content-Type": "application/json",
       })
-      .pipe(map((response) => response))
+      .pipe(
+        map((response) => response),
+
+        catchError((error) => {
+          console.error("Error adding media", error);
+          return of(error);
+        })
+      )
       .subscribe((data) => {
         // TODO: Add error handling
         // TODO:save directly to store
@@ -78,20 +105,47 @@ class MediaStore {
       });
   }
 
+  updateMediaItemTitle(mediaId: string, title: string) {
+    this.mediaItems = this.mediaItems.map((item) => {
+      if (item.id === mediaId) {
+        return {
+          ...item,
+          title,
+        };
+      }
+      return item;
+    });
+    this.updateMediaItemFromServer(mediaId, title);
+  }
   removeMediaItemFromServer(id: string) {
     ajax
       .delete(`${this.baseUrl}/${id}`)
       .pipe(
         map((response: unknown) => {
           return response;
+        }),
+        catchError((error) => {
+          console.error("Error removing media", error);
+          return of(error);
         })
       )
       .subscribe((data) => {
-        console.log(data);
         this.fetchMediaItems();
       });
   }
-}
 
-const store = new MediaStore();
-export default store;
+  updateMediaItemFromServer(id: string, title: string) {
+    this.cancelRequest.next(null); // Cancel previous request
+    ajax.patch(`${this.baseUrl}/${id}`, { title }).pipe(
+      switchMap((response) =>
+        of(response).pipe(
+          takeUntil(this.cancelRequest) // Cancel the request if a new one is made
+        )
+      ),
+      catchError((error) => {
+        console.error("Error updating media item:", error);
+        return of(error);
+      })
+    );
+  }
+}

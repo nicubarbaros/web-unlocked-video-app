@@ -1,4 +1,3 @@
-import React from "react";
 import { Carousel } from "react-daisyui";
 import { MediaItem } from "../store/MediaStore";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +15,7 @@ const beautifyType: Record<Props["type"], string> = {
 
 export default function CarouselSection({ type, mediaItems }: Props) {
   const navigate = useNavigate();
+
   return (
     <div className="w-[100%] my-14">
       <p className="text-lg capitalize mb-4 font-medium">{beautifyType[type]}</p>
@@ -27,7 +27,7 @@ export default function CarouselSection({ type, mediaItems }: Props) {
             onClick={() => {
               navigate(`../${movie.id}`, { relative: "path" });
             }}
-            className="w-[250px]  rounded-lg"
+            className="w-[250px] rounded-lg "
             src={`https://placehold.co/600x400?text=${movie.title}`}
           />
         ))}

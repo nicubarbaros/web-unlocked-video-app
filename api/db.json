@@ -7,7 +7,9 @@
       "genre": "Drama",
       "releaseYear": 1994,
       "rating": 9.3,
-      "classification": "movie"
+      "classification": "movie",
+      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+      "color": "blue"
     },
     {
       "id": "movie_2",
@@ -16,7 +18,9 @@
       "genre": "Crime",
       "releaseYear": 1972,
       "rating": 9.2,
-      "classification": "movie"
+      "classification": "movie",
+      "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+      "color": "red"
     },
     {
       "id": "movie_3",
@@ -25,7 +29,9 @@
       "genre": "Action",
       "releaseYear": 2008,
       "rating": 9,
-      "classification": "movie"
+      "classification": "movie",
+      "description": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+      "color": "black"
     },
     {
       "id": "movie_4",
@@ -34,7 +40,9 @@
       "genre": "Crime",
       "releaseYear": 1994,
       "rating": 8.9,
-      "classification": "movie"
+      "classification": "movie",
+      "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+      "color": "yellow"
     },
     {
       "id": "movie_5",
@@ -43,7 +51,9 @@
       "genre": "Fantasy",
       "releaseYear": 2003,
       "rating": 8.9,
-      "classification": "movie"
+      "classification": "movie",
+      "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+      "color": "green"
     },
     {
       "id": "movie_6",
@@ -52,16 +62,20 @@
       "genre": "Biography",
       "releaseYear": 1993,
       "rating": 8.9,
-      "classification": "movie"
+      "classification": "movie",
+      "description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+      "color": "black-and-white"
     },
     {
       "id": "tv_show_1",
-      "title": "Breaking Bad",
+      "title": "2222",
       "type": "TV Show",
       "genre": "Crime, Drama, Thriller",
       "releaseYear": 2008,
       "rating": 9.5,
-      "classification": "tv_show"
+      "classification": "tv_show",
+      "description": "A high school chemistry teacher turned methamphetamine manufacturing kingpin faces a series of challenges and dangers.",
+      "color": "green"
     },
     {
       "id": "tv_show_2",
@@ -70,7 +84,9 @@
       "genre": "Action, Adventure, Drama",
       "releaseYear": 2011,
       "rating": 9.3,
-      "classification": "tv_show"
+      "classification": "tv_show",
+      "description": "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for thousands of years.",
+      "color": "gold"
     },
     {
       "id": "tv_show_3",
@@ -79,7 +95,9 @@
       "genre": "Biography, Drama, History",
       "releaseYear": 2016,
       "rating": 8.6,
-      "classification": "tv_show"
+      "classification": "tv_show",
+      "description": "Follows the political rivalries and romance of Queen Elizabeth II's reign and the events that shaped the second half of the twentieth century.",
+      "color": "purple"
     },
     {
       "id": "tv_show_4",
@@ -88,7 +106,9 @@
       "genre": "Drama, Fantasy, Horror",
       "releaseYear": 2016,
       "rating": 8.7,
-      "classification": "tv_show"
+      "classification": "tv_show",
+      "description": "In a small town where everyone knows everyone, a group of kids discovers strange supernatural forces and a young girl with psychokinetic abilities.",
+      "color": "dark-red"
     },
     {
       "id": "tv_show_5",
@@ -97,7 +117,9 @@
       "genre": "Comedy, Romance",
       "releaseYear": 1994,
       "rating": 8.5,
-      "classification": "tv_show"
+      "classification": "tv_show",
+      "description": "Follows the personal and professional lives of six twenty to thirty-something-year-old friends living in Manhattan.",
+      "color": "light-blue"
     },
     {
       "id": "tv_show_6",
@@ -106,7 +128,9 @@
       "genre": "Drama, Sci-Fi, Thriller",
       "releaseYear": 2011,
       "rating": 8.8,
-      "classification": "tv_show"
+      "classification": "tv_show",
+      "description": "An anthology series exploring a twisted, high-tech multiverse where humanity's greatest innovations and darkest instincts collide.",
+      "color": "dark-gray"
     },
     {
       "id": "tv_show_7",
@@ -115,7 +139,9 @@
       "genre": "Comedy",
       "releaseYear": 2005,
       "rating": 8.9,
-      "classification": "tv_show"
+      "classification": "tv_show",
+      "description": "A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.",
+      "color": "light-green"
     },
     {
       "id": "tv_show_8",
@@ -124,7 +150,9 @@
       "genre": "Action, Adventure, Fantasy",
       "releaseYear": 2019,
       "rating": 8.7,
-      "classification": "tv_show"
+      "classification": "tv_show",
+      "description": "The travels of a lone bounty hunter in the outer reaches of the galaxy, set after the fall of the Empire and before the rise of the First Order.",
+      "color": "orange"
     },
     {
       "id": "tv_show_10",
@@ -133,7 +161,9 @@
       "genre": "Drama, Mystery, Sci-Fi",
       "releaseYear": 2016,
       "rating": 8.6,
-      "classification": "tv_show"
+      "classification": "tv_show",
+      "description": "Set at the intersection of the near future and the reimagined past, explore a world in which every human appetite can be indulged without consequence.",
+      "color": "maroon"
     },
     {
       "id": "game_2",
@@ -142,7 +172,9 @@
       "genre": "Action-RPG",
       "releaseYear": 2015,
       "rating": 9.3,
-      "classification": "game"
+      "classification": "game",
+      "description": "In a war-torn world, a bounty hunter embarks on a quest to find his adopted daughter, who has been chosen by an ancient prophecy.",
+      "color": "dark-brown"
     },
     {
       "id": "game_3",
@@ -151,7 +183,9 @@
       "genre": "Action-Adventure",
       "releaseYear": 2018,
       "rating": 9.7,
-      "classification": "game"
+      "classification": "game",
+      "description": "Arthur Morgan, a member of the Dutch Van der Linde gang, seeks to survive and provide for his gang in the late 1800s.",
+      "color": "dark-red"
     },
     {
       "id": "54",
@@ -159,7 +193,9 @@
       "type": "Game",
       "genre": "First-Person Shooter",
       "releaseYear": 2016,
-      "rating": 8.9
+      "rating": 8.9,
+      "description": "A team-based multiplayer first-person shooter game featuring various heroes with unique abilities.",
+      "color": "blue"
     },
     {
       "id": "68",
@@ -168,52 +204,31 @@
       "classification": "movie",
       "genre": "First-Person Shooter",
       "releaseYear": 2016,
-      "rating": 8.9
+      "rating": 8.9,
+      "description": "An action-packed movie adaptation of the popular game Overwatch.",
+      "color": "blue"
     },
     {
-      "id": "28",
+      "id": "94",
       "title": "Overwatch",
       "type": "Movie",
       "classification": "game",
       "genre": "First-Person Shooter",
       "releaseYear": 2016,
-      "rating": 8.9
+      "rating": 8.9,
+      "description": "feafea",
+      "color": "red"
     },
     {
-      "id": "23",
+      "id": "16",
       "title": "Overwatch",
       "type": "Movie",
       "classification": "game",
       "genre": "First-Person Shooter",
       "releaseYear": 2016,
-      "rating": 8.9
-    },
-    {
-      "id": "77",
-      "title": "Overwatch",
-      "type": "Movie",
-      "classification": "game",
-      "genre": "First-Person Shooter",
-      "releaseYear": 2016,
-      "rating": 8.9
-    },
-    {
-      "id": "10",
-      "title": "Overwatch",
-      "type": "Movie",
-      "classification": "game",
-      "genre": "First-Person Shooter",
-      "releaseYear": 2016,
-      "rating": 8.9
-    },
-    {
-      "id": "66",
-      "title": "Overwatch",
-      "type": "Movie",
-      "classification": "game",
-      "genre": "First-Person Shooter",
-      "releaseYear": 2016,
-      "rating": 8.9
+      "rating": 8.9,
+      "description": "feafea",
+      "color": "red"
     }
   ]
 }
