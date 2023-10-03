@@ -5,6 +5,9 @@ import MediaForm from "./MediaForm";
 
 export default function Header() {
   const navigate = useNavigate();
+  let [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("q") ?? "";
+
   const handleOnSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     if (!value) {
@@ -39,6 +42,7 @@ export default function Header() {
           placeholder="Search"
           className="w-24 md:w-auto text-white"
           onChange={handleOnSearch}
+          value={searchQuery}
         />
         {/* </Form> */}
 
