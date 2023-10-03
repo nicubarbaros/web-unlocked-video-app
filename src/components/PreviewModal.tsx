@@ -1,13 +1,9 @@
-import React, { useCallback, useEffect, useRef } from "react";
-import { MediaItem } from "../store/MediaStore";
-import { Badge, Button, Card, Hero, Input, Modal } from "react-daisyui";
+import React from "react";
+import { Badge, Button, Hero, Input, Modal } from "react-daisyui";
 import { useNavigate, useParams } from "react-router-dom";
 import { observer } from "mobx-react";
 import { useStore } from "../context/rootStoreContext";
 
-type Props = {
-  item: MediaItem;
-};
 function PreviewModal() {
   const navigate = useNavigate();
   let { id } = useParams();
@@ -26,6 +22,7 @@ function PreviewModal() {
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     mediaStore.updateMediaItemTitle(media.id, event.target.value);
   };
+
   return (
     <Modal open className="bg-white p-0 min-w-[800px]">
       <Button

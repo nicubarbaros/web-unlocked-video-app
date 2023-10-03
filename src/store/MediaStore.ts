@@ -29,12 +29,14 @@ export class MediaStore {
   mediaContentSubject = new BehaviorSubject<MediaItem[]>([]);
   private baseUrl = "http://localhost:8000/browse";
   cancelRequest = new Subject();
+
   constructor() {
     makeAutoObservable(this);
 
     this.mediaContentSubject.subscribe((mediaList) => {
       this.setMedia(mediaList);
     });
+
     this.fetchMediaItems();
   }
 
@@ -48,10 +50,6 @@ export class MediaStore {
 
   removeMediaItem(id: string) {
     this.mediaItems = this.mediaItems.filter((item) => item.id !== id);
-  }
-
-  get totalItems() {
-    return this.mediaItems.length;
   }
 
   get itemsByCategory() {

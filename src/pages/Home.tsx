@@ -16,10 +16,6 @@ function Home() {
       <CarouselSection type="tv_shows" mediaItems={mediaStore.itemsByCategory["tv_show"]} />
       <CarouselSection type="games" mediaItems={mediaStore.itemsByCategory["game"]} />
 
-      <div className="container mx-auto p-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
-      </div>
-
       <Outlet />
     </div>
   );
