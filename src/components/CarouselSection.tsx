@@ -27,7 +27,7 @@ export default function CarouselSection({ type, mediaItems }: Props) {
             onClick={() => {
               navigate(`../${movie.id}`, { relative: "path" });
             }}
-            className="w-[250px] rounded-lg "
+            className="w-[250px] rounded-lg hover:cursor-pointer"
             src={`https://placehold.co/600x400?text=${movie.title}`}
           />
         ))}

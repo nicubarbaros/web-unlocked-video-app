@@ -75,6 +75,11 @@ export class MediaStore {
     };
   }
 
+  get filterMediaByTitle() {
+    return (query: string) => {
+      return this.mediaItems.filter((item) => item.title.toLowerCase().includes(query.toLocaleLowerCase()));
+    };
+  }
   fetchMediaItems() {
     ajax
       .getJSON<MediaItem[]>(this.baseUrl)

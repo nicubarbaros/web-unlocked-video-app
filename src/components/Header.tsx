@@ -1,9 +1,20 @@
 import React from "react";
 import { Button, Input, Navbar } from "react-daisyui";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import MediaForm from "./MediaForm";
 
 export default function Header() {
+  const navigate = useNavigate();
+  const handleOnSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    if (!value) {
+      navigate("/");
+      return;
+    }
+
+    // Navigate to search if the user types something
+    navigate(`/search?q=${value}`);
+  };
   return (
     <Navbar>
       <div className="flex-1 gap-8">
@@ -22,7 +33,13 @@ export default function Header() {
       </div>
       <div className="flex-none gap-2">
         {/* <Form> */}
-        <Input bordered type="text" placeholder="Search" className="w-24 md:w-auto" />
+        <Input
+          bordered
+          type="text"
+          placeholder="Search"
+          className="w-24 md:w-auto text-white"
+          onChange={handleOnSearch}
+        />
         {/* </Form> */}
 
         <MediaForm />

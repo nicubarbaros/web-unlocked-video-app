@@ -20,6 +20,7 @@ function CardItem({ item }: Props) {
         const relativePath = currentPath.endsWith("/") ? `${currentPath}${slugValue}` : `${currentPath}/${slugValue}`;
         navigate(relativePath);
       }}
+      className="hover:cursor-pointer"
     >
       <Card.Image src={`https://placehold.co/600x400?text=${item.title}&font=roboto&`} alt={item.title} />
       <Card.Body>

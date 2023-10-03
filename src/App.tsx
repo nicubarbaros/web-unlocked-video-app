@@ -8,6 +8,7 @@ import Movies from "./pages/Movies";
 import Games from "./pages/Games";
 import Shows from "./pages/Shows";
 import Header from "./components/Header";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/tv-shows" element={<Shows />}>
             <Route path=":id" element={<PreviewModal />} />
           </Route>
+          <Route path="/search" element={<Search />} />
           <Route path="*" element={<div>Not found</div>} />
         </Routes>
       </div>
