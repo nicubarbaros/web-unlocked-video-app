@@ -2,11 +2,20 @@ import { observable, action, makeObservable, get, computed, makeAutoObservable }
 import { BehaviorSubject, Subject, catchError, map, mergeMap, of, startWith, switchMap, takeUntil } from "rxjs";
 import { AjaxResponse, ajax } from "rxjs/ajax";
 
+export const MediaClassification = ["movie", "tv_show", "game"] as const;
+
+export type MediaClassificationType = (typeof MediaClassification)[number];
+
+export const formatMediaClassification: Record<MediaClassificationType, string> = {
+  movie: "Movie",
+  tv_show: "TV Show",
+  game: "Game",
+};
+
 export type MediaItem = {
   id: string;
   title: string;
-  type: "Movie" | "TV Show" | "Game";
-  classification: "movie" | "tv_show" | "game";
+  classification: MediaClassificationType;
   genre: string;
   releaseYear: number;
   rating: number;
@@ -57,15 +66,9 @@ export class MediaStore {
     }, {});
   }
 
-  get movieItems() {
-    return this.mediaItems.filter((item) => item.classification === "movie");
-  }
-
-  get showItems() {
-    return this.mediaItems.filter((item) => item.classification === "tv_show");
-  }
-  get gameItems() {
-    return this.mediaItems.filter((item) => item.classification === "game");
+  get getMediaByClassification() {
+    return (classification: MediaClassificationType) =>
+      this.mediaItems.filter((item) => item.classification === classification);
   }
 
   get getMediaById() {
