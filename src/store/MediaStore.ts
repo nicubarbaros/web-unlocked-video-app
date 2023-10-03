@@ -1,6 +1,6 @@
-import { observable, action, makeObservable, get, computed, makeAutoObservable } from "mobx";
-import { BehaviorSubject, Subject, catchError, map, mergeMap, of, startWith, switchMap, takeUntil } from "rxjs";
-import { AjaxResponse, ajax } from "rxjs/ajax";
+import { makeAutoObservable } from "mobx";
+import { BehaviorSubject, Subject, catchError, map, of, switchMap, takeUntil } from "rxjs";
+import { ajax } from "rxjs/ajax";
 
 export const MediaClassification = ["movie", "tv_show", "game"] as const;
 
@@ -80,6 +80,20 @@ export class MediaStore {
       return this.mediaItems.filter((item) => item.title.toLowerCase().includes(query.toLocaleLowerCase()));
     };
   }
+
+  updateMediaItemTitle(mediaId: string, title: string) {
+    this.mediaItems = this.mediaItems.map((item) => {
+      if (item.id === mediaId) {
+        return {
+          ...item,
+          title,
+        };
+      }
+      return item;
+    });
+    this.updateMediaItemFromServer(mediaId, title);
+  }
+
   fetchMediaItems() {
     ajax
       .getJSON<MediaItem[]>(this.baseUrl)
@@ -111,18 +125,6 @@ export class MediaStore {
       });
   }
 
-  updateMediaItemTitle(mediaId: string, title: string) {
-    this.mediaItems = this.mediaItems.map((item) => {
-      if (item.id === mediaId) {
-        return {
-          ...item,
-          title,
-        };
-      }
-      return item;
-    });
-    this.updateMediaItemFromServer(mediaId, title);
-  }
   removeMediaItemFromServer(id: string) {
     ajax
       .delete(`${this.baseUrl}/${id}`)
