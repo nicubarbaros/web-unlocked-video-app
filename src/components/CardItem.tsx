@@ -22,7 +22,11 @@ function CardItem({ item }: Props) {
       }}
       className="hover:cursor-pointer"
     >
-      <Card.Image src={`https://placehold.co/600x400?text=${item.title}&font=roboto&`} alt={item.title} />
+      <Card.Image
+        src={`https://source.unsplash.com/random/?${item.title.toLowerCase().split(" ").join(",")}`}
+        className="aspect-video object-cover"
+        alt={item.title}
+      />
       <Card.Body>
         <Card.Title tag="h2">{item.title}</Card.Title>
         <p>{item.description}</p>
