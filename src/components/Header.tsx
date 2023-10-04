@@ -35,16 +35,14 @@ export default function Header() {
         </NavLink>
       </div>
       <div className="flex-none gap-2">
-        {/* <Form> */}
         <Input
           bordered
           type="text"
           placeholder="Search"
-          className="w-24 md:w-auto text-white"
+          className="w-24 md:w-auto"
           onChange={handleOnSearch}
           value={searchQuery}
         />
-        {/* </Form> */}
 
         <MediaForm />
         <Button tag="label" tabIndex={0} color="ghost" className="avatar" shape="circle">
