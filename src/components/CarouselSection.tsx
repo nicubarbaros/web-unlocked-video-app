@@ -20,15 +20,15 @@ export default function CarouselSection({ type, mediaItems }: Props) {
     <div className="w-[100%] my-14">
       <p className="text-lg capitalize mb-4 font-medium">{beautifyType[type]}</p>
       <Carousel className="w-[100%] flex gap-4" snap="start">
-        {mediaItems.map((movie) => (
+        {mediaItems.map((item) => (
           <Carousel.Item
-            key={movie.id}
-            alt={movie.title}
+            key={item.id}
+            alt={item.title}
             onClick={() => {
-              navigate(`../${movie.id}`, { relative: "path" });
+              navigate(`../${item.id}`, { relative: "path" });
             }}
             className="w-[250px] rounded-lg hover:cursor-pointer"
-            src={`https://placehold.co/600x400?text=${movie.title}`}
+            src={`https://placehold.co/600x400?text=${item.title}`}
           />
         ))}
       </Carousel>

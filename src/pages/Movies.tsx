@@ -10,8 +10,8 @@ function Movies() {
   const movies = mediaStore.getMediaByClassification("movie");
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {movies.map((item) => (
-        <CardItem key={item.id} item={item} />
+      {movies.map((movie) => (
+        <CardItem key={movie.id} item={movie} />
       ))}
       <Outlet />
     </div>

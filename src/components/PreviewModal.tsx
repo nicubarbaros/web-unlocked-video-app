@@ -8,19 +8,19 @@ function PreviewModal() {
   const navigate = useNavigate();
   let { id } = useParams();
   const { mediaStore } = useStore();
-  const media = mediaStore.getMediaById(id ?? "");
+  const item = mediaStore.getMediaById(id ?? "");
 
-  if (!media) {
+  if (!item) {
     return <div>Media not found</div>;
   }
 
   const handleDelete = () => {
-    mediaStore.removeMediaItem(media.id);
+    mediaStore.removeMediaItem(item.id);
     navigate("..", { relative: "path" });
   };
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    mediaStore.updateMediaItemTitle(media.id, event.target.value);
+    mediaStore.updateMediaItemTitle(item.id, event.target.value);
   };
 
   return (
@@ -44,19 +44,19 @@ function PreviewModal() {
       >
         <Hero.Overlay />
         <Hero.Content className="absolute left-0 bottom-0">
-          <Badge color="ghost">{media.rating} ★</Badge>
-          <Badge color="ghost">{media.genre}</Badge>
-          <Badge color="ghost">{media.releaseYear}</Badge>
+          <Badge color="ghost">{item.rating} ★</Badge>
+          <Badge color="ghost">{item.genre}</Badge>
+          <Badge color="ghost">{item.releaseYear}</Badge>
         </Hero.Content>
       </Hero>
       <div className="p-10">
         <Input
           className="text-5xl font-bold border-none bg-transparent border-b-1 border-black"
-          value={media.title}
+          value={item.title}
           onChange={handleTitleChange}
           bordered={false}
         />
-        <p className="py-6">{media.description}</p>
+        <p className="py-6">{item.description}</p>
 
         <div className="flex gap-4">
           <Button color="error" onClick={handleDelete}>

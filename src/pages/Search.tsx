@@ -1,5 +1,4 @@
 import { observer } from "mobx-react";
-import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useStore } from "../context/rootStoreContext";
 import { Card } from "react-daisyui";

@@ -36,7 +36,7 @@ export class MediaStore {
       this.setMedia(mediaList);
     });
 
-    this.fetchMediaItems();
+    this.readMediaItemsFromServer();
   }
 
   addMediaItem(item: MediaItem) {
@@ -95,15 +95,6 @@ export class MediaStore {
     this.updateMediaItemFromServer(mediaId, title);
   }
 
-  fetchMediaItems() {
-    ajax
-      .getJSON<MediaItem[]>(this.baseUrl)
-      .pipe(map((response) => response))
-      .subscribe((data) => {
-        this.mediaContentSubject.next(data);
-      });
-  }
-
   addMediaItemToServer(item: MediaItem) {
     ajax
       .post(this.baseUrl, item, {
@@ -118,6 +109,15 @@ export class MediaStore {
         })
       )
       .subscribe((data) => {});
+  }
+
+  readMediaItemsFromServer() {
+    ajax
+      .getJSON<MediaItem[]>(this.baseUrl)
+      .pipe(map((response) => response))
+      .subscribe((data) => {
+        this.mediaContentSubject.next(data);
+      });
   }
 
   removeMediaItemFromServer(id: string) {

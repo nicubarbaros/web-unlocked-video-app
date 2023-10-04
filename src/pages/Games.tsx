@@ -10,8 +10,8 @@ function Games() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {games.map((item) => (
-        <CardItem key={item.id} item={item} />
+      {games.map((game) => (
+        <CardItem key={game.id} item={game} />
       ))}
       <Outlet />
     </div>

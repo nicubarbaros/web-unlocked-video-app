@@ -9,8 +9,8 @@ function Shows() {
   const shows = mediaStore.getMediaByClassification("tv_show");
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {shows.map((item) => (
-        <CardItem key={item.id} item={item} />
+      {shows.map((show) => (
+        <CardItem key={show.id} item={show} />
       ))}
       <Outlet />
     </div>

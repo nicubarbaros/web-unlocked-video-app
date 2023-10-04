@@ -15,7 +15,7 @@ function CardItem({ item }: Props) {
   return (
     <Card
       onClick={() => {
-        const slugValue = item.id; // Replace this with the desired slug value
+        const slugValue = item.id;
         const currentPath = location.pathname;
         const relativePath = currentPath.endsWith("/") ? `${currentPath}${slugValue}` : `${currentPath}/${slugValue}`;
         navigate(relativePath);
