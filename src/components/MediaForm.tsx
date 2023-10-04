@@ -18,10 +18,9 @@ export function MediaForm() {
   const [newMedia, setNewMedia] = useState<Omit<MediaItem, "id">>(initialState);
 
   const { mediaStore } = useStore();
-  console.log(newMedia);
 
   const handleSave = () => {
-    mediaStore.addMediaItemToServer({
+    mediaStore.addMediaItem({
       ...newMedia,
       id: Math.floor(Math.random() * 100) + "",
     });

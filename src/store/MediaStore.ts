@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { BehaviorSubject, Subject, catchError, map, of, switchMap, takeUntil } from "rxjs";
+import { BehaviorSubject, catchError, map, of } from "rxjs";
 import { ajax } from "rxjs/ajax";
 
 export const MediaClassification = ["movie", "tv_show", "game"] as const;
@@ -28,7 +28,6 @@ export class MediaStore {
   mediaLoading: boolean = false;
   mediaContentSubject = new BehaviorSubject<MediaItem[]>([]);
   private baseUrl = "http://localhost:8000/browse";
-  cancelRequest = new Subject();
 
   constructor() {
     makeAutoObservable(this);
@@ -42,6 +41,7 @@ export class MediaStore {
 
   addMediaItem(item: MediaItem) {
     this.mediaItems.push(item);
+    this.addMediaItemToServer(item);
   }
 
   setMedia(newMedia: MediaItem[]) {
@@ -50,6 +50,7 @@ export class MediaStore {
 
   removeMediaItem(id: string) {
     this.mediaItems = this.mediaItems.filter((item) => item.id !== id);
+    this.removeMediaItemFromServer(id);
   }
 
   get itemsByCategory() {
@@ -116,13 +117,7 @@ export class MediaStore {
           return of(error);
         })
       )
-      .subscribe((data) => {
-        // TODO: Add error handling
-        // TODO:save directly to store
-        // TODO: if error remove from store
-        // TODO: if error show message
-        this.fetchMediaItems();
-      });
+      .subscribe((data) => {});
   }
 
   removeMediaItemFromServer(id: string) {
@@ -137,23 +132,21 @@ export class MediaStore {
           return of(error);
         })
       )
-      .subscribe((data) => {
-        this.fetchMediaItems();
-      });
+      .subscribe((data) => {});
   }
 
   updateMediaItemFromServer(id: string, title: string) {
-    this.cancelRequest.next(null); // Cancel previous request
-    ajax.patch(`${this.baseUrl}/${id}`, { title }).pipe(
-      switchMap((response) =>
-        of(response).pipe(
-          takeUntil(this.cancelRequest) // Cancel the request if a new one is made
-        )
-      ),
-      catchError((error) => {
-        console.error("Error updating media item:", error);
-        return of(error);
-      })
-    );
+    ajax
+      .patch(`${this.baseUrl}/${id}`, { title })
+      .pipe(
+        map((response: unknown) => {
+          console.log(response);
+          return response;
+        }),
+        catchError((error) => {
+          return of(error);
+        })
+      )
+      .subscribe((data) => {});
   }
 }

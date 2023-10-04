@@ -15,7 +15,7 @@ function PreviewModal() {
   }
 
   const handleDelete = () => {
-    mediaStore.removeMediaItemFromServer(media.id);
+    mediaStore.removeMediaItem(media.id);
     navigate("..", { relative: "path" });
   };
 

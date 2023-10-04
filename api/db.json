@@ -57,7 +57,7 @@
     },
     {
       "id": "movie_6",
-      "title": "Schindler's List",
+      "title": "Schindlers List",
       "type": "Movie",
       "genre": "Biography",
       "releaseYear": 1993,
@@ -240,6 +240,26 @@
       "releaseYear": 2001,
       "color": "#000000",
       "id": "56"
+    },
+    {
+      "title": "efa",
+      "description": "fea",
+      "rating": 4,
+      "classification": "movie",
+      "genre": "fea",
+      "releaseYear": 2023,
+      "color": "#000000",
+      "id": "51"
+    },
+    {
+      "title": "Aleluiaa",
+      "description": "fea",
+      "rating": 5,
+      "classification": "movie",
+      "genre": "fea",
+      "releaseYear": 2023,
+      "color": "#000000",
+      "id": "59"
     }
   ]
 }
